@@ -14,9 +14,6 @@ class Card:
     def __post_init__(self):
         self.msort_idx = CARD_RANKS.index(self.mval)
 
-    def __str__(self) -> str:
-        return f'{self.mval}'
-
     def __hash__(self) -> int:
         return hash(self.mval)
 
@@ -75,7 +72,7 @@ def get_hand_type(pcards: list[Card]) -> str:
 
 def get_score(pcards: list[Card]) -> int:
     score = 0
-    magnitude = 13**5
+    magnitude = 13 ** 5
 
     for card in pcards:
         score += magnitude * CARD_RANKS.index(card.mval)
@@ -94,11 +91,6 @@ def get_counts(pcards: list[Card]) -> defaultdict[Card, int]:
 
 
 def is_five_of_a_kind(pcards: list[Card]) -> bool:
-    test = sorted(
-        get_counts(pcards)
-        .values()
-    )
-
     return sorted(
         get_counts(pcards)
         .values()
@@ -106,11 +98,6 @@ def is_five_of_a_kind(pcards: list[Card]) -> bool:
 
 
 def is_four_of_a_kind(pcards: list[Card]) -> bool:
-    test = sorted(
-        get_counts(pcards)
-        .values()
-    )
-
     return sorted(
         get_counts(pcards)
         .values()
@@ -118,11 +105,6 @@ def is_four_of_a_kind(pcards: list[Card]) -> bool:
 
 
 def is_full_house(pcards: list[Card]) -> bool:
-    test = sorted(
-        get_counts(pcards)
-        .values()
-    )
-
     return sorted(
         get_counts(pcards)
         .values()
@@ -130,11 +112,6 @@ def is_full_house(pcards: list[Card]) -> bool:
 
 
 def is_three_of_a_kind(pcards: list[Card]) -> bool:
-    test = set(
-        get_counts(pcards)
-        .values()
-    )
-
     return set(
         get_counts(pcards)
         .values()
@@ -142,11 +119,6 @@ def is_three_of_a_kind(pcards: list[Card]) -> bool:
 
 
 def is_two_pair(pcards: list[Card]) -> bool:
-    test = sorted(
-        get_counts(pcards)
-        .values()
-    )
-
     return sorted(
         get_counts(pcards)
         .values()
@@ -154,11 +126,6 @@ def is_two_pair(pcards: list[Card]) -> bool:
 
 
 def is_one_pair(pcards: list[Card]) -> bool:
-    test = set(
-        get_counts(pcards)
-        .values()
-    )
-
     return set(
         get_counts(pcards)
         .values()
@@ -180,5 +147,5 @@ if __name__ == '__main__':
 
     sorted_hands = sorted(hands)
     ranked_hands = list(zip(sorted_hands, range(1, 1001)))
-    p1 = sum(h[0].mbet*h[1] for h in ranked_hands)
+    p1 = sum(h[0].mbet * h[1] for h in ranked_hands)
     print(p1)
