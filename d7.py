@@ -167,7 +167,7 @@ def is_one_pair(pcards: list[Card]) -> bool:
 
 # MAIN ==========================================
 if __name__ == '__main__':
-    # puzzle_input = ['32T3K 765', 'T55J5 684', 'KK677 28', 'KTJJT 220', 'QQQJA 483']
+    # puzzle_input = '32T3K 765\nT55J5 684\nKK677 28\nKTJJT 220\nQQQJA 483'.split('\n')
 
     puzzle_input = inputs \
         .get_input(7) \
